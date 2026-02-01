@@ -9,10 +9,14 @@ public class UserService {
 
     private static final String DB_URL = "jdbc:mysql://localhost/db";
     private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = "password";
+
+    // Password should NOT be hard-coded
+    private static final String DB_PASSWORD =
+            System.getenv("DB_PASSWORD");
 
     public void findUser(String username) throws SQLException {
-        String query = "SELECT * FROM users WHERE name = ?";
+        // Avoid SELECT *
+        String query = "SELECT id, name FROM users WHERE name = ?";
 
         try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
              PreparedStatement ps = conn.prepareStatement(query)) {
