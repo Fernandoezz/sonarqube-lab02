@@ -42,4 +42,7 @@ jobs:
           mvn sonar:sonar \
             -Dsonar.projectKey=fernandomps214062j_lab02 \
             -Dsonar.organization=fernandomps214062j \
-            -Dsonar.host.url=https://sonarcloud.io
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.pullrequest.key=${{ github.event.pull_request.number }} \
+            -Dsonar.pullrequest.branch=${{ github.head_ref }} \
+            -Dsonar.pullrequest.base=${{ github.base_ref }}
