@@ -1,4 +1,4 @@
-package main.java.com.example;
+package com.example;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -28,7 +28,7 @@ public class UserService {
     public void notUsed() {
         System.out.println("I am never called");
     }
-    
+
 
     // EVEN WORSE: another SQL injection
 public void deleteUser(String username) throws Exception {
